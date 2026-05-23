@@ -19,7 +19,7 @@ export default function Home() {
       <Certifications />
       <Contact />
       <footer className="text-center py-8 text-xs font-mono text-[#30363d] border-t border-[#21262d]">
-        Built with Next.js · Sanchit Ahuja © 2025
+        Built with Next.js · Sanchit Ahuja © 2026
       </footer>
     </main>
   );

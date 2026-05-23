@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { skills } from "@/data/resume";
 
-const iconMap: Record<string, string> = {
+const iconMap: Record<string, string | { type: "img"; src: string }> = {
+  "Claude": { type: "img", src: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/claude.png" },
   "Python":           "devicon-python-plain colored",
   "C++":              "devicon-cplusplus-plain colored",
   "Django":           "devicon-django-plain colored",
@@ -67,7 +68,11 @@ export default function Skills() {
                         whileHover={{ scale: 1.08, borderColor: "#58a6ff", color: "#58a6ff" }}
                         className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 bg-[#161b22] border border-[#30363d] text-[#e6edf3] rounded-md cursor-default transition-colors duration-150"
                       >
-                        {icon && <i className={`${icon} text-sm`} />}
+                        {icon && typeof icon === "string" && <i className={`${icon} text-sm`} />}
+                        {icon && typeof icon === "object" && (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={icon.src} alt={skill} className="w-3.5 h-3.5 object-contain" referrerPolicy="no-referrer" />
+                        )}
                         {skill}
                       </motion.span>
                     );

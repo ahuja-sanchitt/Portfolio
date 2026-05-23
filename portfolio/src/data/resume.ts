@@ -5,7 +5,8 @@ export const personal = {
   location: "Gurugram, Haryana",
   email: "sanchitahujafas@gmail.com",
   phone: "+91-7042673467",
-  linkedin: "https://www.linkedin.com/in/sanchit-ahuja",
+  github: "https://github.com/ahuja-sanchitt",
+  linkedin: "https://www.linkedin.com/in/sanchit-ahuja-088a871a4/",
   available: true,
 };
 
@@ -104,19 +105,19 @@ export const skills = [
   },
   {
     category: "Backend & Infra",
-    items: ["Django", "Django REST", "FastAPI", "Microservices", "Kafka", "gRPC", "GraphQL", "Celery", "Redis", "Docker", "Kubernetes", "REST API"],
+    items: ["Django", "Django REST", "FastAPI", "Microservices", "Kafka", "gRPC", "GraphQL", "Celery", "Redis", "Docker", "Kubernetes", "REST API", "Server Driven UI"],
   },
   {
     category: "AI / LLMs",
-    items: ["LLMs", "RAG", "Graph-RAG", "AI Integration", "Automation", "Server Driven UI"],
+    items: ["LLMs", "RAG", "Graph-RAG", "AI Integration", "Automation"],
   },
   {
     category: "Databases",
-    items: ["MySQL", "MongoDB", "SQL", "Graph DB (Ultipa)"],
+    items: ["MySQL", "MongoDB", "Graph DB (Ultipa)"],
   },
   {
     category: "Tools & Platforms",
-    items: ["AWS", "Git", "GitHub", "Bitbucket", "Jira", "Postman", "Shell"],
+    items: ["AWS", "Git", "GitHub", "Bitbucket", "Jira", "Postman", "Shell", "Claude"],
   },
   {
     category: "Engineering",
