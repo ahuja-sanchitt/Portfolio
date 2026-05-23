@@ -46,7 +46,7 @@ export default function About() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-[#8b949e] leading-relaxed mb-4">
-                I care about the <span className="text-white font-semibold">why</span> behind every
+                I care about the <span className="text-white font-semibold">why</span>{" "}behind every
                 feature: how it moves a metric, saves a team time, or makes a customer&apos;s
                 experience feel effortless. That mindset is what got me promoted in 3 months, and
                 it&apos;s what keeps me going deeper into AI.
