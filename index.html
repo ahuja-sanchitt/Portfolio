@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sanchit Ahuja — Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d1117;
+      --bg2:      #161b22;
+      --bg3:      #21262d;
+      --accent:   #58a6ff;
+      --accent2:  #3fb950;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --border:   #30363d;
+      --glow:     rgba(88,166,255,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 2rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-content { max-width: 680px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 0.3rem 0.8rem;
+      font-size: 0.8rem; color: var(--accent2);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 .name { color: var(--text); }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-tagline {
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 560px; margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-tagline strong { color: var(--text); font-weight: 600; }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.4rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #0d1117;
+    }
+    .btn-primary:hover { background: #79c0ff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(88,166,255,0.3); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 4rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-value { font-size: 1.8rem; font-weight: 800; color: var(--text); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+
+    /* SECTION SHARED */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ABOUT */
+    #about { background: var(--bg); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.8; font-size: 1rem; }
+    .about-text p strong { color: var(--text); }
+    .about-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .about-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.2rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .about-card:hover { border-color: var(--accent); }
+    .about-card-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .about-card-sub { font-size: 0.82rem; color: var(--muted); }
+
+    /* EXPERIENCE */
+    #experience { background: var(--bg2); }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 2rem; padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-meta { text-align: right; }
+    .timeline-date { font-size: 0.8rem; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .timeline-company { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+    .timeline-location { font-size: 0.75rem; color: var(--muted); opacity: 0.7; margin-top: 0.1rem; }
+    .timeline-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+    .timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .timeline-bullets li {
+      font-size: 0.875rem; color: var(--muted);
+      padding-left: 1.2rem; position: relative; line-height: 1.6;
+    }
+    .timeline-bullets li::before {
+      content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; top: 0.25em;
+    }
+    .timeline-bullets li strong { color: var(--text); }
+
+    /* PROJECTS */
+    #projects { background: var(--bg); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.8rem;
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .project-card:hover::before { opacity: 1; }
+    .project-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .tag {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px;
+    }
+    .project-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .project-bullets li { font-size: 0.83rem; color: var(--muted); padding-left: 1rem; position: relative; line-height: 1.55; }
+    .project-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent2); }
+    .project-bullets li strong { color: var(--text); }
+
+    /* SKILLS */
+    #skills { background: var(--bg2); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; }
+    .skill-group {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+    }
+    .skill-group-title {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      color: var(--accent2); text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip {
+      font-size: 0.8rem; padding: 0.3rem 0.7rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text);
+      transition: all 0.2s;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* CERTS */
+    #certs { background: var(--bg); }
+    .cert-list { display: flex; flex-direction: column; gap: 1rem; }
+    .cert-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.5rem;
+    }
+    .cert-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .cert-name { font-weight: 600; font-size: 0.95rem; }
+    .cert-desc { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* CONTACT */
+    #contact { background: var(--bg2); }
+    .contact-wrapper {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem; text-align: center;
+      max-width: 640px; margin: 0 auto;
+      position: relative; overflow: hidden;
+    }
+    .contact-wrapper::before {
+      content: '';
+      position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-wrapper h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.75rem; }
+    .contact-wrapper p { color: var(--muted); margin-bottom: 2rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.2rem; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+      border: 1px solid var(--border); color: var(--text);
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .contact-link svg { width: 16px; height: 16px; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 2rem;
+      color: var(--muted); font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .timeline-meta { text-align: left; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">sanchit.dev</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Available for opportunities</div>
+    <h1>
+      <span class="name">Sanchit Ahuja</span><br/>
+      <span class="highlight">Software Engineer.</span>
+    </h1>
+    <p class="hero-tagline">
+      I build <strong>backend systems that scale</strong> and ship features that move the needle.
+      Currently owning core services at <strong>Spinny</strong> — turning complexity into clarity, one commit at a time.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#experience" class="btn btn-ghost">See my work</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-value">2+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div>
+        <div class="stat-value">40%</div>
+        <div class="stat-label">Human intervention cut</div>
+      </div>
+      <div>
+        <div class="stat-value">80/day</div>
+        <div class="stat-label">Tickets auto-resolved</div>
+      </div>
+      <div>
+        <div class="stat-value">250+</div>
+        <div class="stat-label">DSA problems solved</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">// about me</p>
+        <h2 class="section-title">Obsessed with<br/>building things right.</h2>
+        <p>I'm a Software Development Engineer who loves getting deep into backend systems. I don't just write code — I think about ownership, impact, and the <strong>why</strong> behind every feature.</p>
+        <p>From refactoring SDKs at a remote US startup to owning warranty infrastructure at one of India's fastest-growing companies, I've learned that the best engineers are the ones who <strong>take initiative</strong> and see things through.</p>
+        <p>MCA graduate with a 8.9 CGPA, BCA with 9.1 — but my real education has been in production.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-title">🎓 MCA — Bharati Vidyapeeth's</div>
+          <div class="about-card-sub">CGPA: 8.9 · Aug 2022 – Jul 2024 · New Delhi</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-title">🎓 BCA — Vivekananda Institute</div>
+          <div class="about-card-sub">CGPA: 9.1 · Jul 2019 – Jun 2022 · New Delhi</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-title">📍 Gurugram, Haryana</div>
+          <div class="about-card-sub">Open to remote &amp; hybrid roles</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-title">⚡ Core focus</div>
+          <div class="about-card-sub">Backend systems · LLMs · Distributed infra · Python · Django</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">// experience</p>
+    <h2 class="section-title">Where I've built.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Oct 2024 – Present</div>
+          <div class="timeline-company">Spinny</div>
+          <div class="timeline-location">Gurugram, Haryana</div>
+        </div>
+        <div>
+          <div class="timeline-role">Software Development Engineer</div>
+          <ul class="timeline-bullets">
+            <li>Promoted from intern to <strong>SDE-1 in 3 months</strong> based on performance and ownership.</li>
+            <li>Owns the <strong>Warranty Service</strong> — a core backend system handling <strong>100%</strong> of warranty-related flows across Refurb Operations and Customer Experience.</li>
+            <li>Shipped AI Chatbot, voice notes, and auto-recategorisation on the CX Support Chat screen, contributing to a <strong>25% reduction in First Response Time (FRT)</strong>.</li>
+            <li><strong>Reduced human intervention by 40%</strong> through intelligent automation and decision support systems.</li>
+            <li>Revamped account section with design &amp; support teams, cutting misdirected queries by <strong>30%</strong>.</li>
+            <li>Built an LLM-powered Denial Bot that reduces invalid warranty demand by <strong>80 tickets/day</strong> and automates end-to-end resolution of non-covered cases.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-date">Jan 2024 – Aug 2024</div>
+          <div class="timeline-company">Ultipa</div>
+          <div class="timeline-location">Pleasanton, CA · Remote</div>
+        </div>
+        <div>
+          <div class="timeline-role">Software Engineer Intern</div>
+          <ul class="timeline-bullets">
+            <li>Refactored and maintained the <strong>Python SDK for Ultipa DB</strong>, delivering a <strong>15% increase in user adoption</strong>.</li>
+            <li>Introduced <strong>20+ new functions</strong> and revamped <strong>35+ functions</strong> in the Python SDK.</li>
+            <li>Built unit tests increasing test coverage by <strong>50%</strong> and catching critical bugs early.</li>
+            <li>Engineered a <strong>Graph-RAG solution</strong> to enhance information retrieval using graph databases + LLMs.</li>
+            <li>Guided an internal team and a client through seamless Ultipa DB integration and adoption.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">// projects</p>
+    <h2 class="section-title">Things I've shipped.</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-name">Graph Chatbot</div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Graph DB</span>
+          <span class="tag">GPT-4</span>
+          <span class="tag">Chroma DB</span>
+          <span class="tag">RAG</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Integrated graph databases with LLMs to boost chatbot accuracy by <strong>20%</strong>.</li>
+          <li>Deployed Chroma DB for vector operations, increasing storage &amp; retrieval efficiency by <strong>40%</strong>.</li>
+          <li>Applied hallucination-reduction techniques, cutting inaccurate replies by <strong>60%</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">// skills</p>
+    <h2 class="section-title">My toolkit.</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-chips">
+          <span class="chip">Python</span>
+          <span class="chip">C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Backend &amp; Infra</div>
+        <div class="skill-chips">
+          <span class="chip">Django</span>
+          <span class="chip">Django REST</span>
+          <span class="chip">Microservices</span>
+          <span class="chip">Kafka</span>
+          <span class="chip">gRPC</span>
+          <span class="chip">GraphQL</span>
+          <span class="chip">Celery</span>
+          <span class="chip">Redis</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">REST API</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">AI / LLMs</div>
+        <div class="skill-chips">
+          <span class="chip">LLMs</span>
+          <span class="chip">RAG</span>
+          <span class="chip">AI Integration</span>
+          <span class="chip">Automation</span>
+          <span class="chip">Server Driven UI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Databases</div>
+        <div class="skill-chips">
+          <span class="chip">MySQL</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Graph DB (Ultipa)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Tools &amp; Platforms</div>
+        <div class="skill-chips">
+          <span class="chip">AWS</span>
+          <span class="chip">Git</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">Bitbucket</span>
+          <span class="chip">Jira</span>
+          <span class="chip">Postman</span>
+          <span class="chip">Shell</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Engineering</div>
+        <div class="skill-chips">
+          <span class="chip">System Design</span>
+          <span class="chip">DSA</span>
+          <span class="chip">Unit Testing</span>
+          <span class="chip">SDK Development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="container">
+    <p class="section-label">// certifications</p>
+    <h2 class="section-title">Credentials.</h2>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-icon">☁️</div>
+        <div>
+          <div class="cert-name">AWS Cloud Technical Essentials</div>
+          <div class="cert-desc">Foundational training in core AWS services, cloud security, and architecture</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🐍</div>
+        <div>
+          <div class="cert-name">Django Web Framework — Meta</div>
+          <div class="cert-desc">Certified in professional Django development by Meta</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🧠</div>
+        <div>
+          <div class="cert-name">250+ DSA Problems Solved</div>
+          <div class="cert-desc">Consistently solving Data Structures &amp; Algorithms problems across coding platforms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">// contact</p>
+    <h2 class="section-title" style="text-align:center">Let's connect.</h2>
+    <div class="contact-wrapper">
+      <h3>I'm open to the right opportunity.</h3>
+      <p>Whether it's a backend role, a challenging problem, or just a good conversation about distributed systems — I'm listening.</p>
+      <div class="contact-links">
+        <a href="mailto:sanchitahujafas@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          Email me
+        </a>
+        <a href="https://www.linkedin.com/in/sanchit-ahuja" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="tel:+917042673467" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.12 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+          +91-70426-73467
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built with care · Sanchit Ahuja © 2025
+</footer>
+
+</body>
+</html>
