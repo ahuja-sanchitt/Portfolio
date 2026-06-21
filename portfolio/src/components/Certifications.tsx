@@ -21,11 +21,11 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function Certifications() {
   return (
-    <section className="py-24 px-6 bg-[#0d1117]">
+    <section className="py-24 px-6 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-xs text-[#58a6ff] uppercase tracking-widest mb-3">
-            // certifications
+          <p className="font-mono text-xs text-[#cbff3f] uppercase tracking-widest mb-3">
+            // 05 — certifications
           </p>
           <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-12">Credentials.</h2>
         </FadeIn>
@@ -34,13 +34,15 @@ export default function Certifications() {
           {certifications.map((cert, i) => (
             <FadeIn key={cert.name} delay={0.1 * i}>
               <motion.div
-                whileHover={{ x: 6, borderColor: "#58a6ff" }}
-                className="flex items-start gap-5 bg-[#161b22] border border-[#30363d] rounded-xl p-5 transition-colors duration-200"
+                whileHover={{ x: 6, borderColor: "#cbff3f" }}
+                className="flex items-center gap-5 bg-[#111111] border border-[#262626] rounded-xl p-5 transition-colors duration-200"
               >
-                <span className="text-2xl flex-shrink-0">{cert.icon}</span>
+                <span className="text-lg font-black text-[#cbff3f] font-mono flex-shrink-0 w-8">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <div>
-                  <div className="font-semibold text-white text-sm">{cert.name}</div>
-                  <div className="text-xs text-[#8b949e] mt-1">{cert.description}</div>
+                  <div className="font-bold text-white text-base">{cert.name}</div>
+                  <div className="text-sm text-[#9a9a9a] mt-1">{cert.description}</div>
                 </div>
               </motion.div>
             </FadeIn>

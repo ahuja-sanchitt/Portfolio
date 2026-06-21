@@ -41,45 +41,60 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-export default function Skills() {
+function SkillCard({ group, delay }: { group: (typeof skills)[number]; delay: number }) {
   return (
-    <section id="skills" className="py-24 px-6 bg-[#161b22]">
+    <FadeIn delay={delay}>
+      <div className="bg-[#0d0d0d] border border-[#262626] rounded-xl p-5">
+        <div className="font-mono text-xs text-[#cbff3f] uppercase tracking-widest mb-4">
+          {group.category}
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {group.items.map((skill) => {
+            const icon = iconMap[skill];
+            return (
+              <motion.span
+                key={skill}
+                whileHover={{ scale: 1.08, borderColor: "#cbff3f", color: "#cbff3f" }}
+                className="inline-flex items-center gap-1.5 font-mono text-xs px-2.5 py-1.5 bg-[#111111] border border-[#262626] text-[#d4d4d4] rounded-md cursor-default transition-colors duration-150"
+              >
+                {icon && typeof icon === "string" && <i className={`${icon} text-sm`} />}
+                {icon && typeof icon === "object" && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={icon.src} alt={skill} className="w-3.5 h-3.5 object-contain" referrerPolicy="no-referrer" />
+                )}
+                {skill}
+              </motion.span>
+            );
+          })}
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
+
+export default function Skills() {
+  const columns: (typeof skills[number])[][] = [[], [], []];
+  skills.forEach((group, i) => columns[i % 3].push(group));
+
+  return (
+    <section id="skills" className="py-24 px-6 bg-[#0d0d0d]">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-xs text-[#58a6ff] uppercase tracking-widest mb-3">
-            // skills
+          <p className="font-mono text-xs text-[#cbff3f] uppercase tracking-widest mb-3">
+            // 04 — skills
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-12">My toolkit.</h2>
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-12">
+            My <span className="text-[#cbff3f]">toolkit.</span>
+          </h2>
         </FadeIn>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skills.map((group, i) => (
-            <FadeIn key={group.category} delay={0.07 * i}>
-              <div className="bg-[#0d1117] border border-[#30363d] rounded-xl p-5 h-full">
-                <div className="font-mono text-xs text-[#3fb950] uppercase tracking-widest mb-4">
-                  {group.category}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((skill) => {
-                    const icon = iconMap[skill];
-                    return (
-                      <motion.span
-                        key={skill}
-                        whileHover={{ scale: 1.08, borderColor: "#58a6ff", color: "#58a6ff" }}
-                        className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 bg-[#161b22] border border-[#30363d] text-[#e6edf3] rounded-md cursor-default transition-colors duration-150"
-                      >
-                        {icon && typeof icon === "string" && <i className={`${icon} text-sm`} />}
-                        {icon && typeof icon === "object" && (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={icon.src} alt={skill} className="w-3.5 h-3.5 object-contain" referrerPolicy="no-referrer" />
-                        )}
-                        {skill}
-                      </motion.span>
-                    );
-                  })}
-                </div>
-              </div>
-            </FadeIn>
+          {columns.map((col, c) => (
+            <div key={c} className="flex flex-col gap-5">
+              {col.map((group, i) => (
+                <SkillCard key={group.category} group={group} delay={0.07 * (c + i * 3)} />
+              ))}
+            </div>
           ))}
         </div>
       </div>

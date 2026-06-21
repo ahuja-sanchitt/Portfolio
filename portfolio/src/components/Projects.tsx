@@ -21,52 +21,65 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 bg-[#0d1117]">
+    <section id="projects" className="py-24 px-6 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <p className="font-mono text-xs text-[#58a6ff] uppercase tracking-widest mb-3">
-            // projects
+          <p className="font-mono text-xs text-[#cbff3f] uppercase tracking-widest mb-3">
+            // 03 — projects
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-12">Things I&apos;ve shipped.</h2>
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-12">
+            Things I&apos;ve <span className="text-[#cbff3f]">shipped.</span>
+          </h2>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
           {projects.map((p, i) => (
             <FadeIn key={p.name} delay={0.1 * i}>
               <motion.div
-                whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}
-                className="bg-[#161b22] border border-[#30363d] rounded-2xl p-7 h-full relative overflow-hidden group transition-all duration-200 hover:border-[#58a6ff]"
+                whileHover={{ borderColor: "#cbff3f" }}
+                className="bg-[#0d0d0d] border border-[#262626] rounded-3xl p-7 sm:p-8 transition-colors duration-200 grid sm:grid-cols-[1fr_1.1fr] gap-8"
               >
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#58a6ff] to-[#3fb950] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <h3 className="text-lg font-bold text-white mb-3">{p.name}</h3>
-
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {p.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-mono bg-[#21262d] border border-[#30363d] text-[#58a6ff] px-2.5 py-1 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <div className="font-mono text-xs text-[#6b6b6b]">
+                      {String(i + 1).padStart(3, "0")}
+                      {i === 0 && " / featured"}
+                    </div>
+                    {p.link && (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-mono text-xs text-[#6b6b6b] hover:text-[#cbff3f] transition-colors duration-150"
+                      >
+                        View on GitHub ↗
+                      </a>
+                    )}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{p.name}</h3>
+                  <p className="text-sm text-[#9a9a9a] leading-relaxed mb-5">{p.summary}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-mono bg-[#111111] border border-[#262626] text-[#cbff3f] px-2.5 py-1 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <ul className="space-y-2.5">
-                  {p.bullets.map((b, j) => (
-                    <li key={j} className="flex gap-2.5 text-sm text-[#8b949e] leading-relaxed">
-                      <span className="text-[#3fb950] flex-shrink-0 mt-0.5">–</span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: b.replace(
-                            /(\d+%)/g,
-                            '<strong class="text-white">$1</strong>'
-                          ),
-                        }}
-                      />
-                    </li>
+                <div className="flex flex-col gap-5 justify-center">
+                  {p.highlights.map((h, j) => (
+                    <div key={j} className="flex items-center gap-4 border-l-2 border-[#cbff3f] pl-4">
+                      <span className="text-3xl font-black text-[#cbff3f] flex-shrink-0 leading-none">
+                        {h.value}
+                      </span>
+                      <span className="text-sm text-[#9a9a9a] leading-snug">{h.label}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </motion.div>
             </FadeIn>
           ))}

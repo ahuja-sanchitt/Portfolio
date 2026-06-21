@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </head>
-      <body className="bg-[#0d1117] antialiased">{children}</body>
+      <body className="bg-[#0a0a0a] antialiased">{children}</body>
     </html>
   );
 }

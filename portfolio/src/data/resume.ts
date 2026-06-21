@@ -88,8 +88,54 @@ export const education = [
 
 export const projects = [
   {
+    name: "claude-decision-log",
+    tags: ["Claude Code", "Bash", "Slash Commands", "Open Source"],
+    link: "https://github.com/ahuja-sanchitt/claude-decision-log",
+    summary:
+      "A zero-dependency Claude Code extension that auto-logs every non-trivial architecture decision, with tradeoffs, straight to an append-only docs/DECISIONS.md as you build.",
+    highlights: [
+      { value: "Auto-logged", label: "Every non-trivial architecture decision logged to docs/DECISIONS.md as it happens" },
+      { value: "Per-app logs", label: "Decision logs live next to the code they affect, each numbered independently" },
+      { value: "2 slash commands", label: "/log-decision and /decisions to log, backfill, or summarize on demand" },
+      { value: "1-command install", label: "Open-sourced with a Bash installer that works across any project" },
+    ],
+    bullets: [
+      "Built a zero-dependency Claude Code extension that automatically logs every non-trivial architecture decision, with its tradeoffs, to an append-only docs/DECISIONS.md as it happens.",
+      "Designed per-app decision logs that live next to the code they affect, each numbered independently, plus a project-wide log for cross-cutting choices.",
+      "Shipped /log-decision and /decisions slash commands to manually log, backfill, or summarize the decision trail on demand.",
+      "Added an optional pre-commit hook that nudges, never blocks, when code changed in an app without a matching decision logged.",
+      "Open-sourced the tool with a one-command Bash installer that works across any project.",
+    ],
+  },
+  {
+    name: "InboxPilot",
+    tags: ["React", "FastAPI", "Gmail API", "GPT-4o-mini", "OAuth 2.0"],
+    link: "https://github.com/ahuja-sanchitt/InboxPilot",
+    summary:
+      "A full-stack AI email assistant that connects to Gmail, triages and summarizes your inbox, and drafts replies, all gated behind OAuth sign-in and a mandatory send preview.",
+    highlights: [
+      { value: "Full-stack AI", label: "Gmail-connected assistant that triages, summarizes, and acts on your inbox" },
+      { value: "Smart triage", label: "Sorts mail into Needs Reply, Action Required, and FYI with a reason" },
+      { value: "Bulk send", label: "Personalized {{variable}} mail at scale, gated behind a mandatory preview" },
+    ],
+    bullets: [
+      "Built a full-stack AI email assistant that connects to Gmail and uses an LLM to triage, summarize, and act on a user's inbox, shipped as a web app with Google OAuth sign-in.",
+      "Engineered AI-powered inbox summarization and smart triage, sorting mail into priority buckets like Needs Reply, Action Required, and FYI with a one-line rationale for each.",
+      "Built bulk drafting and sending with {{variable}} placeholders for personalized mail at scale, gated behind a mandatory preview step before anything sends.",
+      "Designed a stateless, database-free architecture that fetches everything live from the Gmail API per request, removing stored user data and privacy liability entirely.",
+      "Kept OAuth tokens in an httponly cookie instead of localStorage, keeping them inaccessible to client-side scripts.",
+    ],
+  },
+  {
     name: "Graph Chatbot",
     tags: ["Python", "Graph DB", "GPT-4", "Chroma DB", "RAG"],
+    summary:
+      "Integrated graph databases with LLMs to ground responses in structured knowledge, pairing Chroma DB vector retrieval with hallucination-reduction techniques for accurate, fast answers.",
+    highlights: [
+      { value: "+20%", label: "chatbot accuracy by grounding LLMs in graph data" },
+      { value: "+40%", label: "storage & retrieval efficiency with Chroma DB vectors" },
+      { value: "-60%", label: "inaccurate replies via hallucination-reduction" },
+    ],
     bullets: [
       "Integrated graph databases with LLMs to boost chatbot accuracy by 20%.",
       "Deployed Chroma DB for vector operations, increasing storage & retrieval efficiency by 40%.",
@@ -129,16 +175,9 @@ export const certifications = [
   {
     name: "AWS Cloud Technical Essentials",
     description: "Foundational training in core AWS services, cloud security, and architecture",
-    icon: "☁️",
   },
   {
     name: "Django Web Framework by Meta",
     description: "Certified in professional Django development by Meta",
-    icon: "🐍",
-  },
-  {
-    name: "250+ DSA Problems Solved",
-    description: "Consistently solving Data Structures & Algorithms problems across coding platforms",
-    icon: "🧠",
   },
 ];

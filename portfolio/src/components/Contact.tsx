@@ -52,47 +52,43 @@ const contactLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 bg-[#161b22]">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-24 px-6 bg-[#0d0d0d]">
+      <div className="max-w-6xl mx-auto text-center">
         <FadeIn>
-          <p className="font-mono text-xs text-[#58a6ff] uppercase tracking-widest mb-3 text-center">
-            // contact
+          <p className="font-mono text-xs text-[#cbff3f] uppercase tracking-widest mb-3">
+            // 06 — contact
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-4 text-center">
-            Let&apos;s connect.
+          <h2 className="text-5xl sm:text-6xl font-black tracking-tight leading-tight mb-6">
+            Let&apos;s build
+            <br />
+            something<span className="text-[#cbff3f]">.</span>
           </h2>
+          <p className="text-[#9a9a9a] max-w-xl mx-auto leading-relaxed mb-10">
+            Whether it&apos;s a backend role, a hard problem, or a conversation about distributed
+            systems and AI, I&apos;m listening.
+          </p>
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <div className="max-w-xl mx-auto mt-10">
-            <div className="relative bg-[#0d1117] border border-[#30363d] rounded-2xl p-10 text-center overflow-hidden">
-              <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full bg-[#58a6ff]/5 pointer-events-none blur-2xl" />
-
-              <h3 className="text-2xl font-bold text-white mb-3">
-                I&apos;m open to the right opportunity.
-              </h3>
-              <p className="text-[#8b949e] text-sm mb-8 leading-relaxed">
-                Whether it&apos;s a backend role, a challenging problem, or just a good conversation
-                about distributed systems, I&apos;m listening.
-              </p>
-
-              <div className="flex flex-col sm:flex-row justify-center gap-3 flex-wrap">
-                {contactLinks.map((link) => (
-                  <motion.a
-                    key={link.label}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noreferrer"
-                    whileHover={{ y: -3, borderColor: "#58a6ff", color: "#58a6ff" }}
-                    whileTap={{ scale: 0.96 }}
-                    className="inline-flex items-center gap-2 border border-[#30363d] text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
-                  >
-                    {link.icon}
-                    {link.label}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 flex-wrap">
+            {contactLinks.map((link, i) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                whileHover={i === 0 ? { scale: 1.04 } : { y: -3, borderColor: "#cbff3f", color: "#cbff3f" }}
+                whileTap={{ scale: 0.96 }}
+                className={
+                  i === 0
+                    ? "inline-flex items-center gap-2 bg-[#cbff3f] text-[#0a0a0a] px-5 py-2.5 rounded-lg text-sm font-semibold"
+                    : "inline-flex items-center gap-2 border border-[#262626] text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
+                }
+              >
+                {link.icon}
+                {link.label}
+              </motion.a>
+            ))}
           </div>
         </FadeIn>
       </div>
