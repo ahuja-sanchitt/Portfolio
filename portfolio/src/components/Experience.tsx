@@ -56,9 +56,9 @@ export default function Experience() {
                 Where I&apos;ve <span className="text-[#cbff3f]">built.</span>
               </h2>
             </div>
-            <div className="text-right font-mono text-xs text-[#6b6b6b] hidden sm:block">
-              <div>build log</div>
-              <div>click to expand ↓</div>
+            <div className="font-mono text-xs text-[#6b6b6b] hidden sm:flex items-center gap-1.5">
+              <span className="text-[#cbff3f]">▸</span>
+              click any role to expand
             </div>
           </div>
         </FadeIn>
@@ -115,27 +115,60 @@ export default function Experience() {
                   </button>
 
                   <AnimatedContent open={expanded === i}>
-                    <ul className="px-6 pb-6 space-y-3 border-t border-[#262626] pt-4">
-                      {job.bullets.map((b, j) => (
-                        <motion.li
-                          key={j}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: j * 0.06 }}
-                          className="flex gap-3 text-sm text-[#9a9a9a] leading-relaxed"
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 pb-6 pt-4 border-t border-[#262626]">
+                      <div>
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-[#6b6b6b] mb-4">
+                          What I built
+                        </div>
+                        <div className="flex flex-col divide-y divide-[#1a1a1a]">
+                          {job.built.map((b, j) => (
+                            <motion.div
+                              key={j}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: j * 0.06 }}
+                              className="border-l-2 border-white/20 pl-4 py-3 first:pt-0 last:pb-0"
+                            >
+                              <div className="font-bold text-white text-sm mb-1">{b.title}</div>
+                              <div className="text-xs text-[#9a9a9a] leading-relaxed">{b.description}</div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="md:border-l md:border-[#262626] md:pl-8">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-[#6b6b6b] mb-4">
+                          Impact
+                        </div>
+                        <div
+                          className={`grid gap-3 mb-3 ${
+                            job.impact.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
+                          }`}
                         >
-                          <span className="text-[#cbff3f] mt-0.5 flex-shrink-0">▸</span>
-                          <span
-                            dangerouslySetInnerHTML={{
-                              __html: b.replace(
-                                /(\d+%|\d+ mos|\d+\+ \w+|Backend Engineer|sole ownership|server-driven UI|Designed and delivered|building real-time|Denial Bot|LLM)/g,
-                                '<strong class="text-white">$1</strong>'
-                              ),
-                            }}
-                          />
-                        </motion.li>
-                      ))}
-                    </ul>
+                          {job.impact.map((stat, j) => (
+                            <div key={j} className="bg-[#141414] border border-[#262626] rounded-xl p-4">
+                              <div className="text-2xl sm:text-3xl font-black text-[#cbff3f]/85 leading-none mb-2">
+                                {stat.value}
+                              </div>
+                              <div className="text-xs text-[#9a9a9a] leading-snug">{stat.label}</div>
+                            </div>
+                          ))}
+                        </div>
+                        {job.facts.length > 0 && (
+                          <div className="flex flex-col gap-2">
+                            {job.facts.map((fact, j) => (
+                              <div
+                                key={j}
+                                className="flex items-center justify-between gap-3 bg-[#141414] border border-[#262626] rounded-xl px-4 py-3"
+                              >
+                                <span className="text-xs text-[#9a9a9a]">{fact.label}</span>
+                                <span className="text-xs font-mono text-white whitespace-nowrap">{fact.value}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </AnimatedContent>
                 </motion.div>
               </div>

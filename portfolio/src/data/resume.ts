@@ -20,20 +20,24 @@ export const about = [
 export const experience = [
   {
     role: "Software Engineer",
-    type: "Full-time · Promoted from Intern",
+    type: "Full-time · Promoted from Intern in 3 months",
     company: "Spinny",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4WGnO-HU2tk8pf7Gp7OBZlkrDnkVNU6r1Q&s",
     location: "Gurugram, Haryana",
     period: "Oct 2024 – Present",
     duration: "1 yr 8 mos",
     current: true,
-    bullets: [
-      "Joined as an intern and converted to full-time within 3 months based on performance and ownership.",
-      "Backend Engineer on Spinny's Platform team, working across Customer Experience with sole ownership of the Warranty Service.",
-      "Designed and delivered multiple workflows within Spinny's consumer Account Section (Warranty, Insurance, RC Transfer and Instant Query Resolution) using server-driven UI, keeping experiences dynamic without app deployments.",
-      "Engineered an automation layer that reads customer queries, pulls the right data, and closes tickets without agent intervention, reducing human intervention by 30% and resolution timelines significantly.",
-      "Developed AI-powered features into the internal CRM: conversation summaries across tickets, chats and calls, and an AI message enhancer for agents, contributing to a 40% reduction in First Response Time.",
-      "Revamped the Warranty Service for scalability, reworking core logic to support new plans alongside legacy systems, building real-time coverage signals, and launching a conditional Denial Bot that routes non-covered tickets to an LLM for automated resolution.",
+    built: [
+      { title: "Server-driven UI", description: "4 consumer flows (Warranty, Insurance, RC Transfer, Instant Query Resolution), all without app deployments" },
+      { title: "Denial Bot", description: "Routes non-covered warranty tickets to an LLM for automatic resolution, no manual review needed" },
+      { title: "AI CRM", description: "LLM-generated summaries across tickets, chats and calls, plus an AI message enhancer for agents" },
+    ],
+    impact: [
+      { value: "-30%", label: "human intervention via AI & automation layer" },
+      { value: "-40%", label: "First Response Time via AI CRM" },
+    ],
+    facts: [
+      { label: "Warranty Service ownership", value: "sole owner" },
     ],
   },
   {
@@ -45,11 +49,17 @@ export const experience = [
     period: "Jan 2024 – Aug 2024",
     duration: "8 mos",
     current: false,
-    bullets: [
-      "Refactored and expanded the Python SDK, revamping 35+ existing functions and introducing 20+ new ones, contributing to a 15% increase in user adoption.",
-      "Built a comprehensive unit test suite for the SDK, increasing test coverage by 50% and surfacing critical bugs early in the development cycle.",
-      "Engineered a Graph-RAG (Retrieval Augmented Generation) solution, combining graph database traversal with LLMs to significantly improve information retrieval accuracy.",
-      "Guided an internal team and an external client through Ultipa DB integration, ensuring smooth onboarding and adoption.",
+    built: [
+      { title: "Python SDK", description: "Refactored 35+ functions, shipped 20+ new ones" },
+      { title: "Test Suite", description: "Comprehensive unit tests surfacing critical bugs early" },
+      { title: "Graph-RAG", description: "Combined graph traversal with LLMs for better retrieval accuracy" },
+    ],
+    impact: [
+      { value: "+15%", label: "increase in user adoption" },
+      { value: "+50%", label: "increase in test coverage" },
+    ],
+    facts: [
+      { label: "Ultipa DB integration", value: "client + internal team" },
     ],
   },
   {
@@ -61,11 +71,14 @@ export const experience = [
     period: "Oct 2023 – Dec 2023",
     duration: "3 mos",
     current: false,
-    bullets: [
-      "Developed RESTful APIs using Django and FastAPI to support multiple internal and client-facing projects.",
-      "Played a key role in building a custom CRM system end-to-end, from initial concept through to deployment, improving a client's customer data management and interaction tracking by 35%.",
-      "Collaborated closely with senior engineers to identify and resolve bugs and implement feature enhancements.",
+    built: [
+      { title: "REST APIs", description: "Django & FastAPI APIs for internal and client-facing projects" },
+      { title: "Custom CRM", description: "End-to-end build, from concept through deployment" },
     ],
+    impact: [
+      { value: "+35%", label: "improvement in customer data management & tracking" },
+    ],
+    facts: [],
   },
 ];
 

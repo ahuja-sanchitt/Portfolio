@@ -15,7 +15,7 @@ export default function Hero() {
 
   return (
     <section className="flex items-center pt-32 pb-16 px-6">
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[1fr_360px] gap-12 items-center">
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-[1fr_360px] gap-12 items-center">
         <div>
           <motion.div {...fadeUp(0.1)}>
             <span className="inline-flex items-center gap-2 bg-[#111111] border border-[#cbff3f]/30 rounded-full px-4 py-1.5 text-xs font-mono lowercase text-[#cbff3f] mb-8">
@@ -81,7 +81,7 @@ export default function Hero() {
             />
             <div className="absolute bottom-0 inset-x-0 bg-[#0a0a0a]/80 backdrop-blur-sm px-4 py-3 flex items-center justify-between text-xs font-mono">
               <span className="text-[#9a9a9a]">Gurugram, IN</span>
-              <span className="text-[#cbff3f]">remote · hybrid</span>
+              <span className="text-[#cbff3f]">open to remote · hybrid</span>
             </div>
           </div>
         </motion.div>

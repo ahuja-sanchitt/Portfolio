@@ -37,7 +37,7 @@ export default function Projects() {
             <FadeIn key={p.name} delay={0.1 * i}>
               <motion.div
                 whileHover={{ borderColor: "#cbff3f" }}
-                className="bg-[#0d0d0d] border border-[#262626] rounded-3xl p-7 sm:p-8 transition-colors duration-200 grid sm:grid-cols-[1fr_1.1fr] gap-8"
+                className="bg-[#0d0d0d] border border-[#262626] rounded-3xl p-7 sm:p-8 transition-colors duration-200 grid grid-cols-1 sm:grid-cols-[1fr_1.1fr] gap-8"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-2">
@@ -73,7 +73,7 @@ export default function Projects() {
                 <div className="flex flex-col gap-5 justify-center">
                   {p.highlights.map((h, j) => (
                     <div key={j} className="flex items-center gap-4 border-l-2 border-[#cbff3f] pl-4">
-                      <span className="text-3xl font-black text-[#cbff3f] flex-shrink-0 leading-none">
+                      <span className="text-2xl font-black text-[#cbff3f]/80 flex-shrink-0 leading-none">
                         {h.value}
                       </span>
                       <span className="text-sm text-[#9a9a9a] leading-snug">{h.label}</span>
