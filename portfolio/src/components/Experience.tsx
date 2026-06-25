@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { experience } from "@/data/resume";
+import CountUp from "@/components/CountUp";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -147,9 +148,10 @@ export default function Experience() {
                         >
                           {job.impact.map((stat, j) => (
                             <div key={j} className="bg-[#141414] border border-[#262626] rounded-xl p-4">
-                              <div className="text-2xl sm:text-3xl font-black text-[#cbff3f]/85 leading-none mb-2">
-                                {stat.value}
-                              </div>
+                              <CountUp
+                                value={stat.value}
+                                className="text-2xl sm:text-3xl font-black text-[#cbff3f]/85 leading-none mb-2 block"
+                              />
                               <div className="text-xs text-[#9a9a9a] leading-snug">{stat.label}</div>
                             </div>
                           ))}

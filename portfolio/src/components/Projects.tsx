@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { projects } from "@/data/resume";
+import CountUp from "@/components/CountUp";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -73,9 +74,10 @@ export default function Projects() {
                 <div className="flex flex-col gap-5 justify-center">
                   {p.highlights.map((h, j) => (
                     <div key={j} className="flex items-center gap-4 border-l-2 border-[#cbff3f] pl-4">
-                      <span className="text-2xl font-black text-[#cbff3f]/80 flex-shrink-0 leading-none">
-                        {h.value}
-                      </span>
+                      <CountUp
+                        value={h.value}
+                        className="text-2xl font-black text-[#cbff3f]/80 flex-shrink-0 leading-none"
+                      />
                       <span className="text-sm text-[#9a9a9a] leading-snug">{h.label}</span>
                     </div>
                   ))}
