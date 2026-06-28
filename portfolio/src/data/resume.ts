@@ -33,8 +33,8 @@ export const experience = [
       { title: "AI CRM", description: "LLM-generated summaries across tickets, chats and calls, plus an AI message enhancer for agents" },
     ],
     impact: [
-      { value: "-30%", label: "human intervention via AI & automation layer" },
-      { value: "-40%", label: "First Response Time via AI CRM" },
+      { value: "-40%", label: "human intervention via AI & automation layer" },
+      { value: "-25%", label: "First Response Time via AI CRM" },
     ],
     facts: [
       { label: "Warranty Service ownership", value: "sole owner" },
@@ -118,6 +118,24 @@ export const projects = [
       "Shipped /log-decision and /decisions slash commands to manually log, backfill, or summarize the decision trail on demand.",
       "Added an optional pre-commit hook that nudges, never blocks, when code changed in an app without a matching decision logged.",
       "Open-sourced the tool with a one-command Bash installer that works across any project.",
+    ],
+  },
+  {
+    name: "Lodestar",
+    tags: ["React", "FastAPI", "OpenAI", "Redis", "Prometheus/Grafana", "Apollo.io"],
+    link: "https://github.com/ahuja-sanchitt/ResumeRanker",
+    summary:
+      "A full-stack AI co-pilot that scores your resume against any job description with an explainable, multi-signal match, then preps you for the interview and drafts cold outreach, all the way to a Gmail draft.",
+    highlights: [
+      { value: "3", label: "scoring signals: embeddings, skill-coverage & LLM judgement" },
+      { value: "SHA-256", label: "cached prompts, resumes & JDs: identical inputs skip the LLM" },
+      { value: "Grafana", label: "live Prometheus observability built in" },
+    ],
+    bullets: [
+      "Built hybrid scoring that blends embeddings, skill-coverage, and LLM judgement into one explainable match score with matched/missing skills and improvement suggestions.",
+      "Implemented SHA-256 fingerprint caching so identical prompt and resume/JD inputs skip the LLM pipeline entirely, cutting cost and latency.",
+      "Added live interview prep powered by web search — company-specific rounds, common question types, and sample questions with source citations.",
+      "Wired Apollo.io contact discovery into an LLM-drafted cold email flow that lands in a Gmail draft, never auto-sent.",
     ],
   },
   {
