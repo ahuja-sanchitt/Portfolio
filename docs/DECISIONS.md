@@ -125,3 +125,23 @@ newer entry that replaced it.
 **Why chosen:** The caption is meant to signal openness to remote/hybrid roles for future opportunities, not describe his present employment mode. Matching the unambiguous wording already established in About.tsx was a one-line fix with no layout impact.
 
 ---
+
+## D-006 — Profile view tracking via Vercel Web Analytics (private dashboard, no on-page counter)
+
+- **Date:** 2026-07-05
+- **Phase / area:** Analytics — `@vercel/analytics` package + `<Analytics />` in `src/app/layout.tsx`
+- **Status:** Accepted
+- **Decision:** Track page/profile views with Vercel Web Analytics: install `@vercel/analytics` and render `<Analytics />` in the root layout. Data is viewed privately in the Vercel dashboard; no view count is displayed on the page.
+
+**Options considered:**
+
+| Option | Tradeoff |
+| --- | --- |
+| **Vercel Web Analytics** ✅ | Two-line, first-party integration for a site already on Vercel. Cookieless / GDPR-friendly (no consent banner needed), free on the Hobby tier. Gives page views, unique visitors, top pages, referrers, devices. Private-only — cannot render a live count on the page without extra work. |
+| Custom counter: Route Handler + Upstash Redis KV | Full control and can display a live "X views" badge, but requires a persistent store, an increment API, bot/refresh de-duping, and more moving parts — overkill when the user only wants private analytics. |
+| Third-party analytics (Plausible / Umami / GoatCounter) | Similar cookieless analytics with a richer dashboard and portability off Vercel, but adds an external account/script and (for hosted Plausible) a cost, with no advantage here since the site is already on Vercel. |
+| Google Analytics (GA4) | Free and ubiquitous, but heavier script, sets cookies (needs a consent banner in many regions), and far more than a portfolio view count needs. |
+
+**Why chosen:** User confirmed the site is on Vercel and wants private analytics only (no public counter). Vercel Web Analytics is the lowest-friction option that satisfies exactly that — native to the existing host, no cookie-consent overhead, and no persistent-store infrastructure to build and maintain. Requires one manual step: enabling Web Analytics in the Vercel project dashboard.
+
+---
