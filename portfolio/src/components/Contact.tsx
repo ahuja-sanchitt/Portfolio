@@ -64,8 +64,8 @@ export default function Contact() {
             something<span className="text-[#cbff3f]">.</span>
           </h2>
           <p className="text-[#9a9a9a] max-w-xl mx-auto leading-relaxed mb-10">
-            Whether it&apos;s an AI engineering role, a hard problem, or a conversation about LLM
-            agents and systems at scale, I&apos;m listening.
+            Whether it&apos;s a backend or AI engineering role, a hard problem, or a conversation
+            about LLM agents and systems at scale, I&apos;m listening.
           </p>
         </FadeIn>
 

@@ -150,7 +150,7 @@ newer entry that replaced it.
 
 - **Date:** 2026-10-31
 - **Phase / area:** Content refresh — `src/data/resume.ts` (personal, about, Spinny experience, projects, skills), `Hero.tsx`, `About.tsx`, `Marquee.tsx`, `Contact.tsx`, `layout.tsx` metadata
-- **Status:** Accepted
+- **Status:** Superseded by D-009
 - **Decision:** Retitle the site from "Software/Backend Engineer" to "AI Engineer" and rewrite the Spinny card entirely from the new resume (multi-agent platform, guardrailed ReAct agent, intent classification, LLMOps gateway, context engineering). Items the one-page resume omits for space (Growth Loops internship, InboxPilot, Graph Chatbot, college names) are kept. Added JevBenchmarking as the first project.
 
 **Options considered:**
@@ -181,5 +181,24 @@ newer entry that replaced it.
 | **`open to all opportunities` (caption) + explicit list in About** ✅ | Short enough for the caption, and the About card still spells out the three work modes for anyone who wants specifics. |
 
 **Why chosen:** The user wants to signal openness to every opportunity, not just remote/hybrid. A short catch-all fits the caption space; keeping the explicit list in About retains D-004's goal of unambiguous wording.
+
+---
+
+## D-009 — One portfolio positioned as "Backend + AI Engineer" to serve both resumes
+
+- **Date:** 2026-10-31
+- **Phase / area:** Positioning — `resume.ts` (personal, about), `Hero.tsx`, `About.tsx`, `Marquee.tsx`, `Contact.tsx`, `layout.tsx` metadata
+- **Status:** Accepted (supersedes D-007's "AI Engineer"-only title; D-007's resume-driven content rules still apply)
+- **Decision:** The user now keeps two resumes (Backend Engineer and AI Engineer). The portfolio stays a single page titled "Backend + AI Engineer" that shows both the backend and AI work, matching the LinkedIn headline. Backend-specific content will be merged in from the Backend resume.
+
+**Options considered:**
+
+| Option | Tradeoff |
+| --- | --- |
+| **One combined "Backend + AI" site** ✅ | One URL that both resumes link to, matches LinkedIn, one place to maintain. Less tailored: each audience also sees the other track's work. |
+| Two tailored variants (e.g. `/ai` and `/backend`) | Each resume links to a version that matches it exactly, but every content update has to be made twice, the data model and routing get more complex, and a recruiter comparing the two could see them as inconsistent. |
+| Keep "AI Engineer" only (D-007) | No extra work, but backend recruiters land on a page that says "AI Engineer", which contradicts the Backend resume they're holding. |
+
+**Why chosen:** User picked the combined option. The real work overlaps (agents run on backend services they own), so one "Backend + AI" story is accurate for both audiences without doubling maintenance.
 
 ---

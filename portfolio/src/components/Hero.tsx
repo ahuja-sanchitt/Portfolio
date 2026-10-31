@@ -37,17 +37,17 @@ export default function Hero() {
           </motion.h1>
 
           <motion.div className="flex items-baseline gap-3 flex-wrap mb-8" {...fadeUp(0.25)}>
-            <span className="text-2xl sm:text-3xl font-bold text-white">AI Engineer</span>
+            <span className="text-2xl sm:text-3xl font-bold text-white">Backend + AI Engineer</span>
             <span className="text-sm font-mono text-[#6b6b6b]">// systems that think &amp; scale</span>
           </motion.div>
 
           <motion.div className="max-w-xl mb-10" {...fadeUp(0.3)}>
             <p className="text-lg text-[#9a9a9a] leading-relaxed">
-              I build production{" "}
-              <span className="text-white font-semibold">LLM agents and the LLMOps behind them</span>:
-              multi-agent support platforms, guardrailed tool-calling agents, and gateways that keep
-              them reliable and cheap. Started with graph databases and Graph-RAG; now shipping
-              agents that resolve real customer tickets at scale.
+              I build{" "}
+              <span className="text-white font-semibold">scalable backend services and the AI agents on top of them</span>:
+              multi-agent support platforms, guardrailed tool-calling agents, and the LLMOps that
+              keeps them reliable and cheap. Started with graph databases and Graph-RAG; now owning
+              core services where AI resolves real customer tickets at scale.
             </p>
           </motion.div>
 

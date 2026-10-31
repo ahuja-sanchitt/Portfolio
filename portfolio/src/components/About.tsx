@@ -92,7 +92,7 @@ export default function About() {
                   core focus
                 </div>
                 <div className="text-xs text-[#9a9a9a]">
-                  AI Engineering · LLM Agents · LLMOps · RAG · Python · Backend Systems
+                  Backend Engineering · AI Agents · LLMOps · RAG · Python · Systems Design
                 </div>
               </motion.div>
             </FadeIn>

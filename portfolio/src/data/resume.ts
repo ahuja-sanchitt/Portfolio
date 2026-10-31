@@ -1,7 +1,7 @@
 export const personal = {
   name: "Sanchit Ahuja",
-  title: "AI Engineer",
-  tagline: "AI engineer who builds LLM systems that think and scale.",
+  title: "Backend + AI Engineer",
+  tagline: "Backend + AI engineer who builds systems that think and scale.",
   location: "Gurugram, Haryana",
   email: "sanchitahujafas@gmail.com",
   phone: "+91-7042673467",
@@ -12,9 +12,9 @@ export const personal = {
 
 
 export const about = [
-  "AI engineer who builds LLM systems that think and scale. I ship production agents, from multi-agent support platforms to guardrailed tool-calling agents, plus the LLMOps layer that keeps them reliable, observable and cheap.",
+  "Backend + AI engineer who builds systems that think and scale. I own backend services end-to-end and ship the production agents on top of them, from multi-agent support platforms to guardrailed tool-calling agents, plus the LLMOps layer that keeps them reliable, observable and cheap.",
   "Started with graph databases and Graph-RAG, and have only gone deeper since. Now building agents that resolve real customer tickets at scale, on top of backend services I own end-to-end.",
-  "Always open to interesting conversations and new opportunities in AI Engineering and Backend.",
+  "Always open to interesting conversations and new opportunities in Backend and AI Engineering.",
 ];
 
 export const experience = [
@@ -29,21 +29,26 @@ export const experience = [
     current: true,
     built: [
       { title: "Multi-agent support platform", description: "8 LLM chat & voice agents on n8n with human-in-the-loop handoff" },
+      { title: "Warranty Intelligence layer", description: "Real-time issue-level coverage signals and a conditional LLM-powered Denial Bot that resolves non-covered cases end to end" },
       { title: "Guardrailed warranty agent", description: "Fail-closed policy checks plus a ReAct tool-calling agent (4 tools, Redis memory) with human escalation" },
+      { title: "CX Support Chat backend", description: "Scalable async features: AI chatbot, callback scheduling and multi-issue tickets" },
+      { title: "LLMOps layer & gateway", description: "Multi-provider (OpenAI, Gemini) for 17 workflows: structured outputs, fail-open, versioned prompts, cost tracing; ~190K LLM summaries/month" },
       { title: "LLM intent classification", description: "250+ categories with taxonomy-validated outputs" },
-      { title: "LLMOps layer & gateway", description: "Multi-provider (OpenAI, Gemini) for 17 workflows: structured outputs, fail-open, versioned prompts, cost tracing" },
-      { title: "Context engineering", description: "Code-built context for grounded replies; ~190K LLM summaries/month of calls, voice notes and chats" },
+      { title: "Account section revamp", description: "Server-driven UI flows (Warranty, Insurance, RC Transfer, Query Resolution), built with design and support teams" },
     ],
     impact: [
       { value: "-37%", label: "resolution time across ~30K monthly tickets" },
-      { value: "18%", label: "of monthly tickets handled by AI agents" },
       { value: "43%", label: "of warranty conversations resolved end to end" },
-      { value: "80%", label: "of \"issue not listed\" tickets auto-classified (10.1K/quarter)" },
+      { value: "18%", label: "of monthly tickets handled by AI agents" },
+      { value: "-120/day", label: "invalid warranty tickets via the Denial Bot" },
+      { value: "-25%", label: "First Response Time on CX Support Chat" },
+      { value: "-30%", label: "misdirected queries after the account section revamp" },
     ],
     facts: [
       { label: "Warranty Service ownership", value: "100% of warranty flows" },
       { label: "LLM gateway volume", value: "~270K calls/mo · ~1B tokens/qtr" },
       { label: "Prompt cache hit rate", value: "up to 56%" },
+      { label: "\"Issue not listed\" tickets classified", value: "80% (10.1K/qtr)" },
       { label: "Customer categories corrected", value: "26%" },
     ],
   },
@@ -217,7 +222,7 @@ export const skills = [
   },
   {
     category: "Backend",
-    items: ["Django", "Django REST", "FastAPI", "Microservices", "Kafka", "Celery", "gRPC", "GraphQL", "REST API", "Server Driven UI"],
+    items: ["Django", "Django REST", "FastAPI", "Microservices", "Kafka", "Celery", "gRPC", "GraphQL", "REST API", "API Design", "Server Driven UI"],
   },
   {
     category: "Databases",
