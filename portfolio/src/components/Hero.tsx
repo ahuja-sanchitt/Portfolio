@@ -37,16 +37,17 @@ export default function Hero() {
           </motion.h1>
 
           <motion.div className="flex items-baseline gap-3 flex-wrap mb-8" {...fadeUp(0.25)}>
-            <span className="text-2xl sm:text-3xl font-bold text-white">Backend Engineer</span>
+            <span className="text-2xl sm:text-3xl font-bold text-white">AI Engineer</span>
             <span className="text-sm font-mono text-[#6b6b6b]">// systems that think &amp; scale</span>
           </motion.div>
 
           <motion.div className="max-w-xl mb-10" {...fadeUp(0.3)}>
             <p className="text-lg text-[#9a9a9a] leading-relaxed">
-              I build backend services at the intersection of{" "}
-              <span className="text-white font-semibold">AI, automation and product</span>, turning
-              complex workflows into seamless experiences. Started with graph databases and LLMs;
-              now owning core systems where AI is at the heart of everything I ship.
+              I build production{" "}
+              <span className="text-white font-semibold">LLM agents and the LLMOps behind them</span>:
+              multi-agent support platforms, guardrailed tool-calling agents, and gateways that keep
+              them reliable and cheap. Started with graph databases and Graph-RAG; now shipping
+              agents that resolve real customer tickets at scale.
             </p>
           </motion.div>
 
@@ -81,7 +82,7 @@ export default function Hero() {
             />
             <div className="absolute bottom-0 inset-x-0 bg-[#0a0a0a]/80 backdrop-blur-sm px-4 py-3 flex items-center justify-between text-xs font-mono">
               <span className="text-[#9a9a9a]">Gurugram, IN</span>
-              <span className="text-[#cbff3f]">open to remote · hybrid</span>
+              <span className="text-[#cbff3f]">open to all opportunities</span>
             </div>
           </div>
         </motion.div>

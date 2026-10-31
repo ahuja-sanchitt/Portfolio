@@ -112,7 +112,7 @@ newer entry that replaced it.
 
 - **Date:** 2026-06-24
 - **Phase / area:** Frontend copy — `Hero.tsx`, the location/work-mode caption overlaid on the profile photo
-- **Status:** Accepted
+- **Status:** Superseded by D-008
 - **Decision:** Changed the photo caption from `remote · hybrid` to `open to remote · hybrid`.
 
 **Options considered:**
@@ -143,5 +143,43 @@ newer entry that replaced it.
 | Google Analytics (GA4) | Free and ubiquitous, but heavier script, sets cookies (needs a consent banner in many regions), and far more than a portfolio view count needs. |
 
 **Why chosen:** User confirmed the site is on Vercel and wants private analytics only (no public counter). Vercel Web Analytics is the lowest-friction option that satisfies exactly that — native to the existing host, no cookie-consent overhead, and no persistent-store infrastructure to build and maintain. Requires one manual step: enabling Web Analytics in the Vercel project dashboard.
+
+---
+
+## D-007 — Repositioned portfolio as "AI Engineer"; resume is the source of truth for Spinny, but non-resume items stay
+
+- **Date:** 2026-10-31
+- **Phase / area:** Content refresh — `src/data/resume.ts` (personal, about, Spinny experience, projects, skills), `Hero.tsx`, `About.tsx`, `Marquee.tsx`, `Contact.tsx`, `layout.tsx` metadata
+- **Status:** Accepted
+- **Decision:** Retitle the site from "Software/Backend Engineer" to "AI Engineer" and rewrite the Spinny card entirely from the new resume (multi-agent platform, guardrailed ReAct agent, intent classification, LLMOps gateway, context engineering). Items the one-page resume omits for space (Growth Loops internship, InboxPilot, Graph Chatbot, college names) are kept. Added JevBenchmarking as the first project.
+
+**Options considered:**
+
+| Option | Tradeoff |
+| --- | --- |
+| **Resume-driven rewrite of changed content, keep extra portfolio items** ✅ | Site and resume tell the same AI-engineer story with identical numbers, while the portfolio still shows the broader history it has room for. Old Spinny stats (-40% human intervention, -25% FRT) and SDUI/Denial Bot/AI CRM entries are dropped from the card because the resume replaced them. |
+| Mirror the resume 1:1 (drop everything not on it) | Perfect consistency, but throws away real work (an internship, two projects) purely because of a one-page PDF constraint. |
+| Merge old and new Spinny bullets | Keeps every past metric, but mixes superseded figures with the new ones and makes the card long and harder to scan — contradicts D-005's scannability goal. |
+
+**Why chosen:** The user asked to update the portfolio to match the new AI Engineer resume. Numbers on the site should match the resume an interviewer has in hand, but a portfolio isn't page-limited, so content the resume merely omits is kept rather than deleted.
+
+---
+
+## D-008 — Work-mode copy says "open to all opportunities" instead of remote/hybrid only
+
+- **Date:** 2026-10-31
+- **Phase / area:** Frontend copy — `Hero.tsx` photo caption, `About.tsx` location card
+- **Status:** Accepted (supersedes D-004)
+- **Decision:** Hero photo caption changed from `open to remote · hybrid` to `open to all opportunities`; About location card changed from "Open to remote & hybrid roles" to "Open to on-site, hybrid & remote roles".
+
+**Options considered:**
+
+| Option | Tradeoff |
+| --- | --- |
+| Keep `open to remote · hybrid` | Implicitly rules out on-site roles, which no longer matches what the user is looking for. |
+| `open to on-site · hybrid · remote` in the caption | Explicit, but long for the narrow caption bar and reads like a checklist. |
+| **`open to all opportunities` (caption) + explicit list in About** ✅ | Short enough for the caption, and the About card still spells out the three work modes for anyone who wants specifics. |
+
+**Why chosen:** The user wants to signal openness to every opportunity, not just remote/hybrid. A short catch-all fits the caption space; keeping the explicit list in About retains D-004's goal of unambiguous wording.
 
 ---

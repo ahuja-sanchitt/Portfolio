@@ -1,7 +1,7 @@
 export const personal = {
   name: "Sanchit Ahuja",
-  title: "Software Engineer",
-  tagline: "Backend engineer who builds systems that think and scale.",
+  title: "AI Engineer",
+  tagline: "AI engineer who builds LLM systems that think and scale.",
   location: "Gurugram, Haryana",
   email: "sanchitahujafas@gmail.com",
   phone: "+91-7042673467",
@@ -12,32 +12,39 @@ export const personal = {
 
 
 export const about = [
-  "Backend engineer who builds systems that think and scale. My work sits at the intersection of AI, automation and product, turning complex workflows into seamless experiences for both customers and the teams serving them.",
-  "Started with graph databases and LLMs, and have only gone deeper since. Now owning core backend services where AI and automation are at the heart of everything I ship.",
-  "Always open to interesting conversations and new opportunities in Backend Engineering and AI.",
+  "AI engineer who builds LLM systems that think and scale. I ship production agents, from multi-agent support platforms to guardrailed tool-calling agents, plus the LLMOps layer that keeps them reliable, observable and cheap.",
+  "Started with graph databases and Graph-RAG, and have only gone deeper since. Now building agents that resolve real customer tickets at scale, on top of backend services I own end-to-end.",
+  "Always open to interesting conversations and new opportunities in AI Engineering and Backend.",
 ];
 
 export const experience = [
   {
-    role: "Software Engineer",
+    role: "Software Development Engineer",
     type: "Full-time · Promoted from Intern in 3 months",
     company: "Spinny",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4WGnO-HU2tk8pf7Gp7OBZlkrDnkVNU6r1Q&s",
     location: "Gurugram, Haryana",
     period: "Oct 2024 – Present",
-    duration: "1 yr 8 mos",
+    duration: "2 yrs 1 mo",
     current: true,
     built: [
-      { title: "Server-driven UI", description: "4 consumer flows (Warranty, Insurance, RC Transfer, Instant Query Resolution), all without app deployments" },
-      { title: "Denial Bot", description: "Routes non-covered warranty tickets to an LLM for automatic resolution, no manual review needed" },
-      { title: "AI CRM", description: "LLM-generated summaries across tickets, chats and calls, plus an AI message enhancer for agents" },
+      { title: "Multi-agent support platform", description: "8 LLM chat & voice agents on n8n with human-in-the-loop handoff" },
+      { title: "Guardrailed warranty agent", description: "Fail-closed policy checks plus a ReAct tool-calling agent (4 tools, Redis memory) with human escalation" },
+      { title: "LLM intent classification", description: "250+ categories with taxonomy-validated outputs" },
+      { title: "LLMOps layer & gateway", description: "Multi-provider (OpenAI, Gemini) for 17 workflows: structured outputs, fail-open, versioned prompts, cost tracing" },
+      { title: "Context engineering", description: "Code-built context for grounded replies; ~190K LLM summaries/month of calls, voice notes and chats" },
     ],
     impact: [
-      { value: "-40%", label: "human intervention via AI & automation layer" },
-      { value: "-25%", label: "First Response Time via AI CRM" },
+      { value: "-37%", label: "resolution time across ~30K monthly tickets" },
+      { value: "18%", label: "of monthly tickets handled by AI agents" },
+      { value: "43%", label: "of warranty conversations resolved end to end" },
+      { value: "80%", label: "of \"issue not listed\" tickets auto-classified (10.1K/quarter)" },
     ],
     facts: [
-      { label: "Warranty Service ownership", value: "sole owner" },
+      { label: "Warranty Service ownership", value: "100% of warranty flows" },
+      { label: "LLM gateway volume", value: "~270K calls/mo · ~1B tokens/qtr" },
+      { label: "Prompt cache hit rate", value: "up to 56%" },
+      { label: "Customer categories corrected", value: "26%" },
     ],
   },
   {
@@ -85,14 +92,14 @@ export const experience = [
 export const education = [
   {
     degree: "Master of Computer Applications",
-    institution: "Bharati Vidyapeeth's Institute of Computers Applications and Management",
+    institution: "Guru Gobind Singh Indraprastha University (GGSIPU)",
     location: "New Delhi",
     period: "Aug 2022 – Jul 2024",
     cgpa: "8.9",
   },
   {
     degree: "Bachelor of Computer Applications",
-    institution: "Vivekananda Institute of Professional Studies",
+    institution: "Guru Gobind Singh Indraprastha University (GGSIPU)",
     location: "New Delhi",
     period: "Jul 2019 – Jun 2022",
     cgpa: "9.1",
@@ -100,6 +107,25 @@ export const education = [
 ];
 
 export const projects = [
+  {
+    name: "JevBenchmarking",
+    tags: ["Python", "FastAPI", "OpenAI", "OpenRouter", "Postgres", "Streaming", "Vercel"],
+    link: "https://github.com/ahuja-sanchitt/JevBenchmarking",
+    summary:
+      "A public demo that races the same production support task against OpenAI and Jev at the same instant, streams each answer back as it lands, and keeps a permanent record of latency and cost for every run.",
+    highlights: [
+      { value: "~9× faster", label: "and ~10× cheaper than gpt-4.1 on ticket recategorisation" },
+      { value: "~63× cheaper", label: "and ~4× faster on the urgency prioritiser (9/9 agreement)" },
+      { value: "100 questions", label: "fused into one request: 13 areas, 170 categories, multi-label warranty" },
+    ],
+    bullets: [
+      "Benchmarked two production LLM features, 170-category ticket recategorisation and an urgency prioritiser, with OpenAI called exactly as production calls it (same prompts, strict JSON schema, temperatures).",
+      "Designed a fused 100-question request (area choice + per-area leaf choices + 87 yes/no warranty faults) that matches hierarchical accuracy in a single round trip instead of tripling latency with a chain.",
+      "Cut input tokens 19% with identical answers via an A/B test on warranty-fault wording; oversized requests split recursively and run both halves in parallel.",
+      "Streams results as they arrive, persists every race in Postgres, and enforces per-IP rate limits (salted IP hashes) and a daily spend cap across serverless instances.",
+      "Built under explicit honesty rules: measured, unscripted timings, sourced cost figures, reasoning tokens shown separately, and failed races never declare a winner.",
+    ],
+  },
   {
     name: "claude-decision-log",
     tags: ["Claude Code", "Bash", "Slash Commands", "Open Source"],
@@ -110,14 +136,14 @@ export const projects = [
       { value: "Auto-logged", label: "Every non-trivial architecture decision logged to docs/DECISIONS.md as it happens" },
       { value: "Per-app logs", label: "Decision logs live next to the code they affect, each numbered independently" },
       { value: "2 slash commands", label: "/log-decision and /decisions to log, backfill, or summarize on demand" },
-      { value: "1-command install", label: "Open-sourced with a Bash installer that works across any project" },
+      { value: "100+ clones", label: "Open-sourced with a one-command Bash installer that works across any project" },
     ],
     bullets: [
       "Built a zero-dependency Claude Code extension that automatically logs every non-trivial architecture decision, with its tradeoffs, to an append-only docs/DECISIONS.md as it happens.",
       "Designed per-app decision logs that live next to the code they affect, each numbered independently, plus a project-wide log for cross-cutting choices.",
       "Shipped /log-decision and /decisions slash commands to manually log, backfill, or summarize the decision trail on demand.",
       "Added an optional pre-commit hook that nudges, never blocks, when code changed in an app without a matching decision logged.",
-      "Open-sourced the tool with a one-command Bash installer that works across any project.",
+      "Open-sourced the tool with a one-command Bash installer that works across any project; 100+ clones so far.",
     ],
   },
   {
@@ -133,7 +159,8 @@ export const projects = [
     ],
     bullets: [
       "Built hybrid scoring that blends embeddings, skill-coverage, and LLM judgement into one explainable match score with matched/missing skills and improvement suggestions.",
-      "Implemented SHA-256 fingerprint caching so identical prompt and resume/JD inputs skip the LLM pipeline entirely, cutting cost and latency.",
+      "Implemented SHA-256 fingerprinting with Redis caching so identical prompt and resume/JD inputs skip repeat embedding/LLM calls entirely, cutting OpenAI cost and latency.",
+      "Shipped Prometheus/Grafana observability and per-IP rate limiting on the API.",
       "Added live interview prep powered by web search — company-specific rounds, common question types, and sample questions with source citations.",
       "Wired Apollo.io contact discovery into an LLM-drafted cold email flow that lands in a Gmail draft, never auto-sent.",
     ],
@@ -178,23 +205,27 @@ export const projects = [
 export const skills = [
   {
     category: "Languages",
-    items: ["Python", "C++"],
-  },
-  {
-    category: "Backend & Infra",
-    items: ["Django", "Django REST", "FastAPI", "Microservices", "Kafka", "gRPC", "GraphQL", "Celery", "Redis", "Docker", "Kubernetes", "REST API", "Server Driven UI"],
+    items: ["Python", "C++", "SQL"],
   },
   {
     category: "AI / LLMs",
-    items: ["LLMs", "RAG", "Graph-RAG", "AI Integration", "Automation"],
+    items: ["OpenAI", "Gemini", "Claude", "RAG", "Graph-RAG", "Vector Databases", "Embeddings", "ReAct Agents", "Multi-Agent Systems", "Tool Calling", "MCP", "Prompt & Context Engineering", "Structured Outputs", "Guardrails", "Prompt Caching"],
+  },
+  {
+    category: "LLMOps",
+    items: ["Evals", "LLM-as-Judge", "Tracing", "Prompt Versioning", "n8n", "LangChain", "LangGraph", "Pydantic"],
+  },
+  {
+    category: "Backend",
+    items: ["Django", "Django REST", "FastAPI", "Microservices", "Kafka", "Celery", "gRPC", "GraphQL", "REST API", "Server Driven UI"],
   },
   {
     category: "Databases",
-    items: ["MySQL", "MongoDB", "Graph DB (Ultipa)"],
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Graph DB (Ultipa)"],
   },
   {
-    category: "Tools & Platforms",
-    items: ["AWS", "Git", "GitHub", "Bitbucket", "Jira", "Postman", "Shell", "Claude"],
+    category: "Infra & Tools",
+    items: ["Docker", "Kubernetes", "AWS", "Grafana", "Prometheus", "Kibana", "Git", "GitHub", "Bitbucket", "Postman", "Jira", "Shell"],
   },
   {
     category: "Engineering",

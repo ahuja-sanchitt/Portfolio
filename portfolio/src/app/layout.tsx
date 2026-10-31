@@ -8,9 +8,9 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mon
 
 export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
-  title: "Sanchit Ahuja | Software Engineer",
+  title: "Sanchit Ahuja | AI Engineer",
   description:
-    "Software Development Engineer specializing in backend systems, LLMs, and distributed infrastructure.",
+    "AI Engineer building production LLM agents, multi-agent systems, and the LLMOps and backend infrastructure behind them.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

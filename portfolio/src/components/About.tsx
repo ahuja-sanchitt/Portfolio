@@ -40,8 +40,8 @@ export default function About() {
               <p className="text-[#9a9a9a] leading-relaxed mb-4">
                 I didn&apos;t just learn to code. I learned to{" "}
                 <span className="text-white font-semibold">own problems end-to-end.</span> From
-                building my first Graph-RAG solution as an intern to shipping LLM-powered automation
-                at scale, every project has pushed me to think deeper about systems, not just syntax.
+                building my first Graph-RAG solution as an intern to shipping multi-agent LLM
+                platforms in production, every project has pushed me to think deeper about systems, not just syntax.
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -79,7 +79,7 @@ export default function About() {
                   <MapPin size={14} className="text-[#cbff3f]" />
                   Gurugram, Haryana
                 </div>
-                <div className="text-xs text-[#9a9a9a]">Open to remote &amp; hybrid roles</div>
+                <div className="text-xs text-[#9a9a9a]">Open to on-site, hybrid &amp; remote roles</div>
               </motion.div>
             </FadeIn>
             <FadeIn delay={0.3}>
@@ -92,7 +92,7 @@ export default function About() {
                   core focus
                 </div>
                 <div className="text-xs text-[#9a9a9a]">
-                  Backend Engineering · AI · LLMs · Python · Django · Systems Design
+                  AI Engineering · LLM Agents · LLMOps · RAG · Python · Backend Systems
                 </div>
               </motion.div>
             </FadeIn>

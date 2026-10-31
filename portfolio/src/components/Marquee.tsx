@@ -1,15 +1,15 @@
 const items = [
-  "BACKEND",
-  "PYTHON",
-  "DJANGO",
-  "AI",
-  "LLMS",
-  "AUTOMATION",
-  "DISTRIBUTED SYSTEMS",
-  "SYSTEMS AT SCALE",
+  "AI ENGINEERING",
+  "LLM AGENTS",
+  "MULTI-AGENT SYSTEMS",
+  "LLMOPS",
   "RAG",
+  "CONTEXT ENGINEERING",
+  "PYTHON",
+  "BACKEND",
+  "DJANGO",
+  "SYSTEMS AT SCALE",
   "MICROSERVICES",
-  "SQL",
 ];
 
 export default function Marquee() {
