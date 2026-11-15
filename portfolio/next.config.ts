@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "media.licdn.com" },
     ],
   },
+  async rewrites() {
+    return [{ source: "/resume", destination: "/resume.pdf" }];
+  },
 };
 
 export default nextConfig;

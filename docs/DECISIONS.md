@@ -202,3 +202,24 @@ newer entry that replaced it.
 **Why chosen:** User picked the combined option. The real work overlaps (agents run on backend services they own), so one "Backend + AI" story is accurate for both audiences without doubling maintenance.
 
 ---
+
+## D-010 — Resume served from the portfolio domain at `/resume`
+
+- **Date:** 2026-11-16
+- **Phase / area:** Hosting — `portfolio/public/resume.pdf`, `portfolio/next.config.ts`
+- **Status:** Accepted
+- **Decision:** The resume PDF lives in `public/resume.pdf` and a Next.js rewrite maps `/resume` to it, so cold emails can link `sanchit-ahuja-info.vercel.app/resume` instead of a Drive link or an attachment.
+
+**Options considered:**
+
+| Option | Tradeoff |
+| --- | --- |
+| Email attachment | No setup, but cold attachments are more likely to hit spam and are awkward on mobile. |
+| Google Drive link | Quick, but a generic Drive URL looks less polished and needs sharing settings checked. |
+| `public/resume.pdf` only (URL `/resume.pdf`) | Zero config, but the `.pdf` URL is less clean to share. |
+| **`public/resume.pdf` + rewrite to `/resume`** ✅ | One small config change; clean URL on his own domain, and updating the resume is just replacing the file and pushing. |
+| Dedicated `/resume` page rendering the PDF | Could add branding, but more code to maintain for no real gain over the browser's PDF viewer. |
+
+**Why chosen:** User picked hosting on his own domain. A rewrite gives the clean `/resume` URL with one line of config and no new page to maintain.
+
+---
